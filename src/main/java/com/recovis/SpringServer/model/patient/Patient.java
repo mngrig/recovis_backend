@@ -1,0 +1,150 @@
+package com.recovis.SpringServer.model.patient;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
+
+import java.sql.Date;
+
+@Entity
+public class Patient {
+  @Id
+  private String patient_id;
+  @NonNull
+  private String first_name;
+  @NonNull
+  private String second_name;
+  @Nullable
+  private String tel;
+  @Nullable
+  private String email;
+  @Nullable
+  private Date last_transplant_date;
+  @Nullable
+  private String transplant_type;
+  @Nullable
+  private int transplants_num;
+  @Nullable
+  private String kidney_failure_cause;
+  @Column(unique = true)
+  @NonNull
+  private String username;
+  @NonNull
+  private String userpassword;
+
+  public String getPatient_id() {
+    return patient_id;
+  }
+
+  public void setPatient_id(String patient_id) {
+    this.patient_id = patient_id;
+  }
+
+  @NonNull
+  public String getFirst_name() {
+    return first_name;
+  }
+
+  public void setFirst_name(@NonNull String first_name) {
+    this.first_name = first_name;
+  }
+
+  @NonNull
+  public String getSecond_name() {
+    return second_name;
+  }
+
+  public void setSecond_name(@NonNull String second_name) {
+    this.second_name = second_name;
+  }
+
+  @Nullable
+  public String getTel() {
+    return tel;
+  }
+
+  public void setTel(@Nullable String tel) {
+    this.tel = tel;
+  }
+
+  @Nullable
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(@Nullable String email) {
+    this.email = email;
+  }
+
+  @Nullable
+  public Date getLast_transplant_date() {
+    return last_transplant_date;
+  }
+
+  public void setLast_transplant_date(@Nullable Date last_transplant_date) {
+    this.last_transplant_date = last_transplant_date;
+  }
+
+  @Nullable
+  public String getTransplant_type() {
+    return transplant_type;
+  }
+
+  public void setTransplant_type(@Nullable String transplant_type) {
+    this.transplant_type = transplant_type;
+  }
+  @Nullable
+  public int getTransplants_num() {
+    return transplants_num;
+  }
+  @Nullable
+  public void setTransplants_num(int transplants_num) {
+    this.transplants_num = transplants_num;
+  }
+
+  @Nullable
+  public String getKidney_failure_cause() {
+    return kidney_failure_cause;
+  }
+
+  public void setKidney_failure_cause(@Nullable String kidney_failure_cause) {
+    this.kidney_failure_cause = kidney_failure_cause;
+  }
+
+  @NonNull
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(@NonNull String username) {
+    this.username = username;
+  }
+
+  @NonNull
+  public String getUserpassword() {
+    return userpassword;
+  }
+
+  public void setUserpassword(@NonNull String userpassword) {
+    this.userpassword = userpassword;
+  }
+
+  @Override
+  public String toString() {
+    return "Patient{" +
+            "patient_id='" + patient_id + '\'' +
+            ", first_name='" + first_name + '\'' +
+            ", second_name='" + second_name + '\'' +
+            ", tel='" + tel + '\'' +
+            ", email='" + email + '\'' +
+            ", last_transplant_date=" + last_transplant_date +
+            ", transplant_type='" + transplant_type + '\'' +
+            ", transplants_num=" + transplants_num +
+            ", kidney_failure_cause='" + kidney_failure_cause + '\'' +
+            ", username='" + username + '\'' +
+            ", userpassword='" + userpassword + '\'' +
+            '}';
+  }
+}

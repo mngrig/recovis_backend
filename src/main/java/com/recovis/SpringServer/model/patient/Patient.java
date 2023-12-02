@@ -1,15 +1,16 @@
 package com.recovis.SpringServer.model.patient;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.recovis.SpringServer.model.patient_profile.PatientProfile;
+import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 public class Patient {
+
   @Id
   private String patient_id;
   @NonNull
@@ -25,7 +26,7 @@ public class Patient {
   @Nullable
   private String transplant_type;
   @Nullable
-  private int transplants_num;
+  private Integer transplants_num;
   @Nullable
   private String kidney_failure_cause;
   @Column(unique = true)
@@ -96,11 +97,11 @@ public class Patient {
     this.transplant_type = transplant_type;
   }
   @Nullable
-  public int getTransplants_num() {
+  public Integer getTransplants_num() {
     return transplants_num;
   }
   @Nullable
-  public void setTransplants_num(int transplants_num) {
+  public void setTransplants_num(Integer transplants_num) {
     this.transplants_num = transplants_num;
   }
 

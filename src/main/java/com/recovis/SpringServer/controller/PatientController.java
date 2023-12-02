@@ -25,7 +25,7 @@ public class PatientController {
         return patientDao.save(patient);
     }
 
-    @GetMapping("/patient/get-profile")
+    @GetMapping("/patient/get-patient")
     public Optional<Patient> searchPatient(@RequestParam String username, @RequestParam String password)
     {
         return patientDao.searchPatient(username,password);

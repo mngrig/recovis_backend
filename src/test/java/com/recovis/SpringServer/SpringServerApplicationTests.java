@@ -48,9 +48,9 @@ class SpringServerApplicationTests {
 	@Test
 	void addPatientProfile() {
 		Optional<Patient> p = patientdao.searchPatient("manosgrig","123");
-		Optional<AllFields> f = allFieldsDao.searchField("Θερμοκρασία Σώματος");
+		Optional<AllFields> f = allFieldsDao.searchField("Πίεση Συστολική");
 		if(p.isPresent() && f.isPresent()){
-			addPatientProfile(p.get(),f.get(),1,"bnv");
+			addPatientProfile(p.get(),f.get(),1,null);
 		}
 	}
 	private void addPatientProfile(Patient patient, AllFields field, int required, String guideline)

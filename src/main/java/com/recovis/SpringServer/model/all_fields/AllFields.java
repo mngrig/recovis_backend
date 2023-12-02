@@ -88,17 +88,4 @@ public class AllFields {
     public void setInterdependence(@Nullable Integer interdependence) {
         this.interdependence = interdependence;
     }
-
-    @Override
-    public String toString() {
-        return "AllFields{" +
-                "field_id=" + field_id +
-                ", description_gr='" + description_gr + '\'' +
-                ", description_en='" + description_en + '\'' +
-                ", frequency='" + frequency + '\'' +
-                ", measurement_unit='" + measurement_unit + '\'' +
-                ", acceptable_range='" + acceptable_range + '\'' +
-                ", interdependence=" + interdependence +
-                '}';
-    }
 }

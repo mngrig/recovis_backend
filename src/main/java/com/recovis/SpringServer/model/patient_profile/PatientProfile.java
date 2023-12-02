@@ -13,7 +13,7 @@ public class PatientProfile {
     private PatientProfileID id;
 
     @NonNull
-    private int required;
+    private Integer required;
     @Nullable
     private String guideline;
 
@@ -40,16 +40,5 @@ public class PatientProfile {
 
     public void setGuideline(@Nullable String guideline) {
         this.guideline = guideline;
-    }
-
-    @Override
-    public String toString() {
-        return "PatientProfile{" +
-                "id=" + id +
-                "patient=" + id.getPatient().toString() +
-                "fields=" + id.getField().toString() +
-                ", required=" + required +
-                ", guideline='" + guideline + '\'' +
-                '}';
     }
 }

@@ -34,7 +34,6 @@ public class AllFieldsDao {
     public Optional<AllFields> searchField(String field_description_gr){
         List<AllFields> allFields;
         allFields = getAllFields();
-        System.out.println(allFields);
         for(int i = 0 ; i < allFields.size(); i++) {
             if(allFields.get(i).getDescription_gr().equals(field_description_gr))
             {

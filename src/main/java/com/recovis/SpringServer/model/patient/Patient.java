@@ -131,21 +131,4 @@ public class Patient {
   public void setUserpassword(@NonNull String userpassword) {
     this.userpassword = userpassword;
   }
-
-  @Override
-  public String toString() {
-    return "Patient{" +
-            "patient_id='" + patient_id + '\'' +
-            ", first_name='" + first_name + '\'' +
-            ", second_name='" + second_name + '\'' +
-            ", tel='" + tel + '\'' +
-            ", email='" + email + '\'' +
-            ", last_transplant_date=" + last_transplant_date +
-            ", transplant_type='" + transplant_type + '\'' +
-            ", transplants_num=" + transplants_num +
-            ", kidney_failure_cause='" + kidney_failure_cause + '\'' +
-            ", username='" + username + '\'' +
-            ", userpassword='" + userpassword + '\'' +
-            '}';
-  }
 }

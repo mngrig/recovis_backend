@@ -1,11 +1,20 @@
 package com.recovis.SpringServer.model.patient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.recovis.SpringServer.model.all_fields.AllFields;
+import com.recovis.SpringServer.model.comment.Comment;
+import com.recovis.SpringServer.model.eav.Eav;
 import com.recovis.SpringServer.model.patient_profile.PatientProfile;
+import com.recovis.SpringServer.model.patient_profile.PatientProfileID;
+import com.recovis.SpringServer.model.yearly_fields.YearlyFields;
 import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -13,6 +22,16 @@ public class Patient {
 
   @Id
   private String patient_id;
+
+  @OneToMany(mappedBy = "patient")
+  private Set<PatientProfile> patientProfiles = new HashSet<>();
+
+  @OneToMany(mappedBy = "patient")
+  private Set<YearlyFields> yearlyFields = new HashSet<>();
+
+  @OneToMany(mappedBy = "patient")
+  private Set<Eav> eavSet = new HashSet<>();
+
   @NonNull
   private String first_name;
   @NonNull
@@ -34,6 +53,24 @@ public class Patient {
   private String username;
   @NonNull
   private String userpassword;
+
+  public Patient() {
+
+  }
+
+  public Patient(String patient_id,@NonNull String first_name, @NonNull String second_name, @Nullable String tel, @Nullable String email, @Nullable Date last_transplant_date, @Nullable String transplant_type, @Nullable Integer transplants_num, @Nullable String kidney_failure_cause, @NonNull String username, @NonNull String userpassword) {
+    this.patient_id = patient_id;
+    this.first_name = first_name;
+    this.second_name = second_name;
+    this.tel = tel;
+    this.email = email;
+    this.last_transplant_date = last_transplant_date;
+    this.transplant_type = transplant_type;
+    this.transplants_num = transplants_num;
+    this.kidney_failure_cause = kidney_failure_cause;
+    this.username = username;
+    this.userpassword = userpassword;
+  }
 
   public String getPatient_id() {
     return patient_id;
@@ -96,12 +133,13 @@ public class Patient {
   public void setTransplant_type(@Nullable String transplant_type) {
     this.transplant_type = transplant_type;
   }
+
   @Nullable
   public Integer getTransplants_num() {
     return transplants_num;
   }
-  @Nullable
-  public void setTransplants_num(Integer transplants_num) {
+
+  public void setTransplants_num(@Nullable Integer transplants_num) {
     this.transplants_num = transplants_num;
   }
 

@@ -1,51 +1,49 @@
 package com.recovis.SpringServer.model.patient_profile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.recovis.SpringServer.model.all_fields.AllFields;
 import com.recovis.SpringServer.model.patient.Patient;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+
 @Embeddable
 public class PatientProfileID implements Serializable {
+    private String patient_id;
 
-    @ManyToOne
-    @JoinColumn(name="patient_id")
-    private Patient patient;
+    private Integer field_id;
 
-    @ManyToOne
-    @JoinColumn(name="field_id")
-    private AllFields field;
+    public PatientProfileID() {
 
-    public Patient getPatient() {
-        return patient;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public PatientProfileID(String patient_id, Integer field_id){
+        this.patient_id = patient_id;
+        this.field_id = field_id;
     }
 
-    public AllFields getField() {
-        return field;
+    public String getPatient_id() {
+        return patient_id;
     }
 
-    public void setField(AllFields field) {
-        this.field = field;
+    public void setPatient_id(String patient_id) {
+        this.patient_id = patient_id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PatientProfileID that = (PatientProfileID) o;
-        return Objects.equals(patient, that.patient) && Objects.equals(field, that.field);
+    public Integer getField_id() {
+        return field_id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(patient, field);
+    public void setField_id(Integer field_id) {
+        this.field_id = field_id;
     }
 }
+
+

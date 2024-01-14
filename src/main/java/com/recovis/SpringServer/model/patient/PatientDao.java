@@ -18,8 +18,8 @@ public class PatientDao {
         return repository.save(patient);
     }
 
-    public void delete(Patient patient){
-        repository.delete(patient);
+    public void delete(String patient_id){
+        repository.deleteById(patient_id);
     }
 
     public List<Patient> getAllPatients(){
@@ -29,13 +29,17 @@ public class PatientDao {
         return patients;
     }
 
-    public Optional<Patient> searchPatient(String username, String password){
+    public Optional<Patient> getPatient(String patient_id){
+        return repository.findById(patient_id);
+    }
+
+    public Optional<String> getPatientID(String username, String password){
         List<Patient> patients;
         patients = getAllPatients();
         for(int i = 0 ; i < patients.size(); i++) {
             if(patients.get(i).getUsername().equals(username) && patients.get(i).getUserpassword().equals(password))
             {
-                return Optional.of((patients.get(i)));
+                return Optional.of((patients.get(i).getPatient_id()));
             }
         }
         return Optional.empty();

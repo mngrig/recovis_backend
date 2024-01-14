@@ -1,5 +1,6 @@
 package com.recovis.SpringServer.model.all_fields;
 
+import com.recovis.SpringServer.model.eav.Eav;
 import com.recovis.SpringServer.model.patient_profile.PatientProfile;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,6 +8,8 @@ import jakarta.persistence.OneToMany;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,6 +17,13 @@ public class AllFields {
 
     @Id
     private int field_id;
+
+    @OneToMany(mappedBy = "field")
+    private Set<PatientProfile> patientProfiles = new HashSet<>();
+
+    @OneToMany(mappedBy = "field")
+    private Set<Eav> eavSet = new HashSet<>();
+
     @NonNull
     private String description_gr;
     @NonNull
@@ -24,8 +34,20 @@ public class AllFields {
     private String measurement_unit;
     @NonNull
     private String acceptable_range;
+    private String type;
     @Nullable
-    private Integer interdependence;
+    private String expression;
+    public AllFields() {
+    }
+
+    public AllFields(int field_id, @NonNull String description_gr, @NonNull String description_en, @NonNull String frequency, @NonNull String measurement_unit, @NonNull String acceptable_range) {
+        this.field_id = field_id;
+        this.description_gr = description_gr;
+        this.description_en = description_en;
+        this.frequency = frequency;
+        this.measurement_unit = measurement_unit;
+        this.acceptable_range = acceptable_range;
+    }
 
     public int getField_id() {
         return field_id;
@@ -80,12 +102,21 @@ public class AllFields {
         this.acceptable_range = acceptable_range;
     }
 
-    @Nullable
-    public Integer getInterdependence() {
-        return interdependence;
+    @NonNull
+    public String getType() {
+        return type;
     }
 
-    public void setInterdependence(@Nullable Integer interdependence) {
-        this.interdependence = interdependence;
+    public void setType(@NonNull String type) {
+        this.type = type;
+    }
+
+    @Nullable
+    public String getExpression() {
+        return expression;
+    }
+
+    public void setExpression(@Nullable String expression) {
+        this.expression = expression;
     }
 }

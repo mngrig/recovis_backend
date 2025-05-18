@@ -16,6 +16,7 @@ import java.util.Objects;
 
 @Embeddable
 public class PatientProfileID implements Serializable {
+
     private String patient_id;
 
     private Integer field_id;

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -40,7 +41,7 @@ public class GroupFieldsDao {
             PatientProfileID patientProfileID2 = new PatientProfileID(patient_id,allGroupFields.get(i+1).getField().getField_id());
 
             if(patientProfile_rep.findById(patientProfileID1).isPresent() && patientProfile_rep.findById(patientProfileID2).isPresent()
-                    && allGroupFields.get(i).getId().getGroup_id() == allGroupFields.get(i+1).getId().getGroup_id())
+                    && Objects.equals(allGroupFields.get(i).getId().getGroup_id(), allGroupFields.get(i + 1).getId().getGroup_id()))
             {
                 GroupFieldsID groupFieldsID1 = new GroupFieldsID(allGroupFields.get(i).getId().getGroup_id(),allGroupFields.get(i).getField().getField_id());
                 GroupFieldsID groupFieldsID2 = new GroupFieldsID(allGroupFields.get(i+1).getId().getGroup_id(),allGroupFields.get(i+1).getField().getField_id());

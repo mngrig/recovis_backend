@@ -58,7 +58,7 @@ public class PatientProfileController {
         else
         {
             for (PatientProfile profile : prevPatientProfile) {
-                    patientProfileDao.delete(profile);
+                patientProfileDao.delete(profile);
             }
         }
 

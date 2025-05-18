@@ -24,7 +24,6 @@ public class YearlyFieldsID implements Serializable {
     private int yeardate;
 
     public YearlyFieldsID() {
-
     }
 
     public YearlyFieldsID(String patient_id, int yeardate) {

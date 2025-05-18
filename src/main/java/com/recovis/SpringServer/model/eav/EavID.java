@@ -18,7 +18,7 @@ public class EavID implements Serializable {
 
     //custom json format, sending Date type from android(client)
     //java.time.LocalDate is better but Jackson on client side cannot serialize it properly
-    @JsonFormat(pattern = "MMM dd, yyyy", timezone="EET")
+    @JsonFormat(pattern = "MMM dd, yyyy")
     private Date exam_date;
 
     private Integer field_id;

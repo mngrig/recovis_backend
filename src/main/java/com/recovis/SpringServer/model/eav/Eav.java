@@ -12,7 +12,7 @@ public class Eav {
     @EmbeddedId
     private EavID id;
 
-    private Float val;
+    private String val;
 
     @ManyToOne
     @MapsId("patient_id")
@@ -29,7 +29,7 @@ public class Eav {
 
     }
 
-    public Eav(EavID id, Float val, Patient patient, AllFields field) {
+    public Eav(EavID id, String val, Patient patient, AllFields field) {
         this.id = id;
         this.val = val;
         this.patient = patient;
@@ -44,11 +44,11 @@ public class Eav {
         this.id = id;
     }
 
-    public Float getVal() {
+    public String getVal() {
         return val;
     }
 
-    public void setVal(Float val) {
+    public void setVal(String val) {
         this.val = val;
     }
 

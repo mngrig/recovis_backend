@@ -18,16 +18,13 @@ public class AllFieldsDao {
         return repository.save(field);
     }
 
-    public void AllFields(AllFields field){
-        repository.delete(field);
-    }
-
     public Optional<AllFields> getField(Integer field_id){ return repository.findById(field_id); }
 
     public List<AllFields> getAllFields(){
         List<AllFields> allFields = new ArrayList<>();
         Streamable.of(repository.findAll())
                 .forEach(allFields::add);
+
         return allFields;
     }
 }

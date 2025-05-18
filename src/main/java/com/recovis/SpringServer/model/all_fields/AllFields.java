@@ -5,6 +5,7 @@ import com.recovis.SpringServer.model.patient_profile.PatientProfile;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.UniqueConstraint;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
@@ -34,19 +35,26 @@ public class AllFields {
     private String measurement_unit;
     @NonNull
     private String acceptable_range;
+
     private String type;
+
     @Nullable
     private String expression;
+
+    @Nullable
+    private Integer order_id;
+
     public AllFields() {
     }
 
-    public AllFields(int field_id, @NonNull String description_gr, @NonNull String description_en, @NonNull String frequency, @NonNull String measurement_unit, @NonNull String acceptable_range) {
+    public AllFields(int field_id, @NonNull String description_gr, @NonNull String description_en, @NonNull String frequency, @NonNull String measurement_unit, @NonNull String acceptable_range, @Nullable Integer order_id) {
         this.field_id = field_id;
         this.description_gr = description_gr;
         this.description_en = description_en;
         this.frequency = frequency;
         this.measurement_unit = measurement_unit;
         this.acceptable_range = acceptable_range;
+        this.order_id = order_id;
     }
 
     public int getField_id() {
@@ -119,4 +127,15 @@ public class AllFields {
     public void setExpression(@Nullable String expression) {
         this.expression = expression;
     }
+
+    @Nullable
+    public Integer getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(int order_id) {
+        this.order_id = order_id;
+    }
+
+
 }

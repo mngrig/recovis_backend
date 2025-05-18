@@ -35,13 +35,11 @@ public class AllFieldsController {
         for(int i = 0 ; i < groupFields.size(); i++)
         {
             for(int j = 0; j < allFields.size(); j++) {
-                if (groupFields.get(i).getField().getField_id() == allFields.get(j).getField_id()) {
+                if (groupFields.get(i).getField().getField_id() == allFields.get(j).getField_id() || allFields.get(j).getType().equals("computed")) {
                     allFields.remove(j);
                 }
             }
         }
         return allFields;
     }
-
-
 }

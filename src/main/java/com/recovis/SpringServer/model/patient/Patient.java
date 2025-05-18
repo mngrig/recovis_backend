@@ -37,6 +37,8 @@ public class Patient {
   @NonNull
   private String second_name;
   @Nullable
+  private Date date_of_birth;
+  @Nullable
   private String tel;
   @Nullable
   private String email;
@@ -58,10 +60,11 @@ public class Patient {
 
   }
 
-  public Patient(String patient_id,@NonNull String first_name, @NonNull String second_name, @Nullable String tel, @Nullable String email, @Nullable Date last_transplant_date, @Nullable String transplant_type, @Nullable Integer transplants_num, @Nullable String kidney_failure_cause, @NonNull String username, @NonNull String userpassword) {
+  public Patient(String patient_id,@NonNull String first_name, @NonNull String second_name, @Nullable Date date_of_birth, @Nullable String tel, @Nullable String email, @Nullable Date last_transplant_date, @Nullable String transplant_type, @Nullable Integer transplants_num, @Nullable String kidney_failure_cause, @NonNull String username, @NonNull String userpassword) {
     this.patient_id = patient_id;
     this.first_name = first_name;
     this.second_name = second_name;
+    this.date_of_birth = date_of_birth;
     this.tel = tel;
     this.email = email;
     this.last_transplant_date = last_transplant_date;
@@ -96,6 +99,15 @@ public class Patient {
 
   public void setSecond_name(@NonNull String second_name) {
     this.second_name = second_name;
+  }
+
+  @Nullable
+  public Date getDate_of_birth() {
+    return date_of_birth;
+  }
+
+  public void setDate_of_birth(@Nullable Date date_of_birth) {
+    this.date_of_birth = date_of_birth;
   }
 
   @Nullable

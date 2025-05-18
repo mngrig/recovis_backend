@@ -33,7 +33,7 @@ public class YearlyFields {
     private Patient patient;
 
 
-    YearlyFields(){
+    public YearlyFields(){
 
     }
 

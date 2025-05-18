@@ -20,7 +20,6 @@ public class Comment {
     @Column(name = "patient_id")
     private String patient_id;
 
-
     // insertable = false, updatable = false, because in android client we only have String patient_id in Comment class
     @ManyToOne
     @JoinColumn(name = "patient_id", insertable = false, updatable = false)
